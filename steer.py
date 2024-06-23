@@ -1,7 +1,8 @@
 import sys
+import os
 import pygame
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel
-from PyQt5.QtCore import Qt, QTimer, QPoint
+from PyQt5.QtCore import Qt, QTimer
 from PyQt5.QtGui import QPixmap, QTransform
 
 class TransparentWindow(QWidget):
@@ -17,13 +18,21 @@ class TransparentWindow(QWidget):
         self.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.Window)
         
         self.label = QLabel(self)
-        self.pixmap = QPixmap("steering_wheel.png")
+        
+        # Determine the correct path to the image
+        if getattr(sys, 'frozen', False):  # PyInstaller bundle
+            base_path = sys._MEIPASS
+        else:  # Running in IDE
+            base_path = os.path.dirname(os.path.abspath(__file__))
+        
+        image_path = os.path.join(base_path, "steering_wheel.png")
+        self.pixmap = QPixmap(image_path)
         self.original_pixmap = self.pixmap
         self.label.setPixmap(self.pixmap)
         self.resize(self.pixmap.width(), self.pixmap.height())
         
         screen = QApplication.primaryScreen().geometry()
-        self.move(screen.width() - self.width(), screen.height() - self.height())
+        self.move((screen.width() - self.width()) // 2, screen.height() - self.height() //2)
 
     def initPygame(self):
         pygame.init()

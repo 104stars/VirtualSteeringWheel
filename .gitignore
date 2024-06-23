@@ -1,0 +1,17 @@
+build
+dist
+build/Virtual Wheel/localpycs/pyimod04_pywin32.pyc
+build/Virtual Wheel/localpycs/pyimod03_ctypes.pyc
+build/Virtual Wheel/localpycs/pyimod02_importers.pyc
+build/Virtual Wheel/localpycs/pyimod01_archive.pyc
+build/Virtual Wheel/xref-Virtual Wheel.html
+build/Virtual Wheel/warn-Virtual Wheel.txt
+build/Virtual Wheel/Virtual Wheel.pkg
+build/Virtual Wheel/PYZ-00.toc
+build/Virtual Wheel/PYZ-00.pyz
+build/Virtual Wheel/PKG-00.toc
+build/Virtual Wheel/EXE-00.toc
+build/Virtual Wheel/base_library.zip
+build/Virtual Wheel/Analysis-00.toc
+Virtual Wheel.spec
+dist/Virtual Wheel.exe
